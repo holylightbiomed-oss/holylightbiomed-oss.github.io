@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
 
+Sitemap: https://holylightbiomed-oss.github.io/sitemap.xml
