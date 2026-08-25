@@ -19,7 +19,46 @@
     * {
       box-sizing: border-box;
     }
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button
+    class="lightbox-close"
+    type="button"
+    aria-label="關閉照片"
+    onclick="closeLightbox(event)">
+    &times;
+  </button>
 
+  <img id="lightbox-image" src="" alt="">
+</div>
+
+<script>
+  function openLightbox(image) {
+    const lightbox = document.getElementById("lightbox");
+    const largeImage = document.getElementById("lightbox-image");
+
+    largeImage.src = image.src;
+    largeImage.alt = image.alt;
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox(event) {
+    if (
+      event.target.id === "lightbox" ||
+      event.target.classList.contains("lightbox-close")
+    ) {
+      document.getElementById("lightbox").classList.remove("open");
+      document.body.style.overflow = "";
+    }
+  }
+
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+      document.getElementById("lightbox").classList.remove("open");
+      document.body.style.overflow = "";
+    }
+  });
+</script>
     body {
       margin: 0;
       font-family: "Microsoft JhengHei", Arial, sans-serif;
@@ -78,7 +117,91 @@ header p {
       border-radius: 14px;
       background: #1a2631;
     }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
 
+.gallery-item {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #354554;
+  border-radius: 14px;
+  background: #1a2631;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  cursor: zoom-in;
+}
+
+.gallery-item figcaption {
+  padding: 18px;
+}
+
+.gallery-item h3 {
+  margin: 0 0 8px;
+  color: #ffffff;
+}
+
+.gallery-item p {
+  margin: 0;
+  color: #b9c4ce;
+  font-size: 15px;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 25px;
+  border: 0;
+  color: white;
+  background: transparent;
+  font-size: 42px;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item img {
+    height: 440px;
+  }
+}
     footer {
       padding: 30px 20px;
       text-align: center;
@@ -98,14 +221,47 @@ header p {
 
   <main>
     <section>
-      <h2>關於我</h2>
-      <p>
-        歡迎來到我的個人網站。我喜歡鐵道攝影、旅行、攝影與影片製作，
-        希望透過照片記錄不同列車、車站與鐵道沿線的風景。
-      </p>
-    </section>
+  <h2>精選作品</h2>
+  <p>以鏡頭記錄列車運行、鐵道沿線，以及每一次難得的交會。</p>
 
-    <section>
+  <div class="gallery">
+    <figure class="gallery-item">
+      <img
+        src="BWVN4244.JPG"
+        alt="多列台灣鐵路列車在山林環繞的鐵道場站交會"
+        loading="lazy"
+        onclick="openLightbox(this)">
+      <figcaption>
+        <h3>群車交會</h3>
+        <p>不同世代的列車同框，呈現鐵道場站繁忙而難得的瞬間。</p>
+      </figcaption>
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        src="IMG_0399.JPG"
+        alt="台鐵R200型柴電機車牽引軍用裝甲車運輸列車"
+        loading="lazy"
+        onclick="openLightbox(this)">
+      <figcaption>
+        <h3>軍運列車紀錄</h3>
+        <p>新型柴電機車牽引軍用裝備列車，留下罕見的鐵道運輸畫面。</p>
+      </figcaption>
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        src="IMG_1210.JPG"
+        alt="台鐵TEMU1000型太魯閣號行駛於山林與隧道間"
+        loading="lazy"
+        onclick="openLightbox(this)">
+      <figcaption>
+        <h3>太魯閣號出隧道</h3>
+        <p>太魯閣號沿著山林間的彎道駛出隧道，展現傾斜式列車的動態感。</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
       <h2>攝影作品</h2>
 
       <div class="cards">
