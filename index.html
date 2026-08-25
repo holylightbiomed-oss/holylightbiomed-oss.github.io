@@ -28,7 +28,59 @@
       background: #111820;
       line-height: 1.7;
     }
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px max(5%, calc((100% - 1000px) / 2));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(11, 16, 21, 0.94);
+  backdrop-filter: blur(10px);
+}
 
+.site-name {
+  color: #f2b544;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+}
+
+.nav-links a {
+  color: #e5e9ed;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: #f2b544;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 75px;
+}
+
+@media (max-width: 650px) {
+  .site-nav {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-links {
+    gap: 12px;
+    font-size: 14px;
+  }
+}
    header {
   min-height: 75vh;
   display: flex;
@@ -174,6 +226,15 @@ header p {
 </head>
 
 <body>
+  <nav class="site-nav" aria-label="主要導覽">
+  <a class="site-name" href="#">Michael 的鐵道攝影</a>
+
+  <div class="nav-links">
+    <a href="#about">關於我</a>
+    <a href="#gallery">精選作品</a>
+    <a href="#facebook">Facebook</a>
+  </div>
+</nav>
   <header>
     <div>
       <h1>Michael 的鐵道攝影</h1>
@@ -181,9 +242,17 @@ header p {
     </div>
   </header>
 
-  <main>
-    <section>
-  <h2>精選作品</h2>
+ <main>
+  <section id="about">
+    <h2>關於我</h2>
+    <p>
+      歡迎來到我的個人網站。我喜歡鐵道攝影、旅行、攝影與影片製作，
+      希望透過照片記錄不同列車、車站與鐵道沿線的風景。
+    </p>
+  </section>
+
+  <section id="gallery">
+    <h2>精選作品</h2>
   <p>以鏡頭記錄列車運行、鐵道沿線，以及每一次難得的交會。</p>
 
   <div class="gallery">
@@ -243,7 +312,7 @@ header p {
         </div>
       </div>
     </section>
-        <section>
+      <section id="facebook">
       <h2>Facebook 最新貼文</h2>
       <p>追蹤我的鐵道攝影近況、最新作品與旅途紀錄。</p>
 
