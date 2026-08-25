@@ -604,20 +604,7 @@ header p {
 
   <img id="lightbox-image" src="" alt="">
 </div>
-document.querySelectorAll(".gallery-item > img").forEach(function (image) {
-  const frame = document.createElement("div");
-  frame.className = "photo-frame";
 
-  image.parentNode.insertBefore(frame, image);
-  frame.appendChild(image);
-
-  const watermark = document.createElement("span");
-  watermark.className = "photo-watermark";
-  watermark.textContent =
-    "© Michael 鐵道攝影";
-
-  frame.appendChild(watermark);
-});
 <script>
   function openLightbox(image) {
     const lightbox = document.getElementById("lightbox");
@@ -645,6 +632,20 @@ document.querySelectorAll(".gallery-item > img").forEach(function (image) {
       document.body.style.overflow = "";
     }
   });
+  document.querySelectorAll(".gallery-item > img").forEach(function (image) {
+  const frame = document.createElement("div");
+  frame.className = "photo-frame";
+
+  image.parentNode.insertBefore(frame, image);
+  frame.appendChild(image);
+
+  const watermark = document.createElement("span");
+  watermark.className = "photo-watermark";
+  watermark.textContent =
+    "© Michael 鐵道攝影";
+
+  frame.appendChild(watermark);
+});
 </script>
 </body>
 </html>
