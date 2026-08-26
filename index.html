@@ -296,7 +296,12 @@ header p {
   pointer-events: none;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
 }
-</style>
+
+    .category-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin: 26px 0 34px; }
+    .category-link { display: block; padding: 20px 22px; border: 1px solid #53677d; border-radius: 14px; color: #eef3f8; background: #243244; text-decoration: none; transition: transform .2s ease, background .2s ease; }
+    .category-link:hover { transform: translateY(-2px); background: #30425a; }
+    .category-link strong { display: block; color: #efbd55; font-size: 22px; margin-bottom: 4px; }
+  </style>
 </head>
 
 <body>
@@ -329,7 +334,13 @@ header p {
   <h2>攝影作品</h2>
   <h3 class="gallery-subtitle">精選作品</h3>
   <p>以鏡頭記錄列車運行、鐵道沿線，以及每一次難得的交會。</p>
-  <div class="gallery">
+  
+      <div class="category-links" aria-label="作品分類">
+        <a class="category-link" href="taiwan.html"><strong>台灣鐵道</strong>瀏覽 12 張台灣列車與鐵道風景作品</a>
+        <a class="category-link" href="japan.html"><strong>日本鐵道</strong>瀏覽 27 張日本列車與旅途攝影作品</a>
+      </div>
+
+      <div class="gallery">
     <figure class="gallery-item">
       <img
         src="BWVN4244.JPG"
