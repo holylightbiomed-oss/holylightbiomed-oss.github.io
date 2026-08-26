@@ -301,6 +301,52 @@ header p {
     .category-link { display: block; padding: 20px 22px; border: 1px solid #53677d; border-radius: 14px; color: #eef3f8; background: #243244; text-decoration: none; transition: transform .2s ease, background .2s ease; }
     .category-link:hover { transform: translateY(-2px); background: #30425a; }
     .category-link strong { display: block; color: #efbd55; font-size: 22px; margin-bottom: 4px; }
+  
+    .hero-gallery-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .hero-gallery-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 190px;
+      padding: 13px 22px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(18, 31, 48, 0.78);
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(6px);
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .hero-gallery-button:hover,
+    .hero-gallery-button:focus-visible {
+      color: #111820;
+      background: #f2b544;
+      border-color: #f2b544;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 650px) {
+      .hero-gallery-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-gallery-button {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
   </style>
 </head>
 
@@ -318,6 +364,10 @@ header p {
     <div>
       <h1>Michael 的鐵道攝影</h1>
       <p>記錄列車、旅程，以及鐵道沿線的每一個瞬間</p>
+        <div class="hero-gallery-links" aria-label="鐵道攝影分類">
+          <a class="hero-gallery-button" href="taiwan.html">台灣鐵道攝影</a>
+          <a class="hero-gallery-button" href="japan.html">日本鐵道攝影</a>
+        </div>
     </div>
   </header>
 
